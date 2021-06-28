@@ -46,11 +46,11 @@ MT->add_plugin(__PACKAGE__->new({
                                 $_ => {
                                     fields => [{
                                             name        => 'body_mtbe_custom',
-                                            from_object => generage_from_object_getter('text'),
+                                            from_object => generate_from_object_handler('text'),
                                         },
                                         {
                                             name        => 'more_mtbe_custom',
-                                            from_object => generage_from_object_getter('text_more'),
+                                            from_object => generate_from_object_handler('text_more'),
                                         },
                                     ],
                                     },
@@ -104,7 +104,7 @@ sub data_mtbe_custom_from_object {
     \@data;
 }
 
-sub generage_from_object_getter {
+sub generate_from_object_handler {
     my ($col) = @_;
 
     sub {
