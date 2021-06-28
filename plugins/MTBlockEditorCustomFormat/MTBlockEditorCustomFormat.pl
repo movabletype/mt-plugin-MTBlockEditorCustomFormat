@@ -147,7 +147,7 @@ sub transform {
         for my $h (@$handlers) {
             $h->($b, $encode_opts);
         }
-        transform($b->{blocks} || [], $handlers, $encode_opts);
+        transform($b->{blocks}, $handlers, $encode_opts) if $b->{blocks};
     }
 }
 
