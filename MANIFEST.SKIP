@@ -36,7 +36,8 @@ i18next-parser.config.js
 ^docs/
 
 # test
-^t/
+\bt/
+\bxt/
 
 # source files
 mt-static/plugins/OGPEmbed/typings/
