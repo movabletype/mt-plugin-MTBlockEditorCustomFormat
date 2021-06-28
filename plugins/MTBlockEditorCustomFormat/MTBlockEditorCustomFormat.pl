@@ -18,7 +18,7 @@ MT->add_plugin(__PACKAGE__->new({
             tags => {
                 modifier => {
                     mtbe_custom_json => sub {
-                        my ($text, $attr, $ctx) = @_;
+                        my ($text, $attr) = @_;
 
                         return $text if !$attr;
 
@@ -87,9 +87,7 @@ sub data_mtbe_custom_from_object {
         if ($field->{type} eq 'multi_line_text') {
             if ($obj->data->{"${fid}_convert_breaks"} eq 'block_editor') {
                 my @params = MT->instance->multi_param('mtbe_custom');
-                ($data, my $opts) = apply_custom_filter($data, \@params);
-
-                # don't use $opts here
+                ($data) = apply_custom_filter($data, \@params);    # don't use $encode_opts here
             }
         }
 
@@ -114,7 +112,7 @@ sub generate_from_object_handler {
         my $data = $obj->$col;
         if ($obj->convert_breaks eq 'block_editor') {
             my @params = MT->instance->multi_param('mtbe_custom');
-            ($data, my $opts) = apply_custom_filter($data, \@params);
+            ($data) = apply_custom_filter($data, \@params);    # don't use $encode_opts here
         }
 
         return $data;
