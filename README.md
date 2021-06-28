@@ -184,7 +184,7 @@ Presets that combines multiple specifications.
 ## Requirements
 
 * Movable Type 7
-* MTBlockEditor plugin
+* MTBlockEditor plugin (1.0.4 or later)
 
 ## License
 
