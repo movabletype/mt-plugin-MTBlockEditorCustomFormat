@@ -1,21 +1,19 @@
 # MTBlockEditorCustomFormat
 
-This is a plugin for the Movable Type.
-This plugin provides unitities to export MTBlockEditor data as a data structure.
+これはMovable Typeのプラグインです。
+[MTBlockEditor](https://github.com/movabletype/mt-plugin-MTBlockEditor)の編集内容を、構造化されたデータとそして取得するためのプラグインの実装例です。
 
-## Installation
+## インストール
 
-1. Download an archive file from [releases](https://github.com/movabletype/mt-plugin-MTBlockEditorCustomFormat/releases).
-1. Unpack the archive file.
-1. Upload the unpacked files to your MT directory.
-
-Should look like this when installed:
+1. [releases](https://github.com/movabletype/mt-plugin-MTBlockEditorCustomFormat/releases)からアーカイブをダウンロードしてください。
+1. アーカイブを展開してください。
+1. MTのインストールディレクトリへ、以下のような構成でアップロードしてください。
 
     $MT_HOME/
         plugins/
             MTBlockEditorCustomFormat/
 
-## Usage
+## 使用例
 
 ### MTML
 
@@ -25,7 +23,7 @@ Should look like this when installed:
 </mt:ContentField>
 ```
 
-Output
+出力
 
 ```
 [
@@ -54,7 +52,7 @@ Output
 https://example.com/cgi-bin/mt/mt-data-api.cgi/v4/sites/1/contentTypes/1/data/1?fields=data_mtbe_custom&mtbe_custom=simple_with_meta
 ```
 
-Output
+出力
 
 ```
 {
@@ -90,7 +88,7 @@ Output
 https://example.com/cgi-bin/mt/mt-data-api.cgi/v4/sites/1/entries/1?fields=body_mtbe_custom,more_mtbe_custom&mtbe_custom=simple_with_meta
 ```
 
-Output
+出力
 
 ```
 {
@@ -123,41 +121,41 @@ Output
 }
 ```
 
-### Specifiable parameters
+### 指定可能なパラメータ
 
-You can specify the following values for the "mtbe_custom_json" parameter in MTML and "mtbe_custom" in Data API.
+MTMLでは「mtbe_custom_json」に対して、Data APIでは「mtbe_custom」に対して、以下の値を指定することができます。
 
-#### Subdivided designation
+#### 詳細な値
 
 <dl>
 
 <dt>strip_meta_all</dt>
-<dd>Remove all metadata.</dd>
+<dd>すべてのメタデータを削除します</dd>
 
 <dt>strip_meta_setup</dt>
-<dd>Remove metadata (label and help text) for setup.</dd>
+<dd>カスタムブロックで使われるラベルとヘルプとテキストのデータを削除します。</dd>
 
 <dt>dedup_content</dt>
-<dd>Removes the content contained in the child's blocks from the parent block in order to removes duplicates.</dd>
+<dd>子ブロックがある場合には入力内容は子ブロックに含まれるため、親ブロックに入っている冗長な入力内容のデータを削除します</dd>
 
 <dt>stringify_content</dt>
-<dd>The content data saved as an array (internal data structrue) is converted to a character string.</dd>
+<dd>内部データでは配列ですが、一般的に使いやすいように単純な文字列に変換します</dd>
 
 <dt>raw</dt>
-<dd>Outputs the internal data structure as it is</dd>
+<dd>変換を行わず、内部データをそのまま出力します</dd>
 
 <dt>pretty</dt>
-<dd>Specify the "pretty" flag for the JSON encoder.</dd>
+<dd>JSONのエンコーダーのオプションに「pretty」を指定します。MTMLの場合にのみ有効です。</dd>
 
 <dt>ascii</dt>
-<dd>Specify the "ascii" flag for the JSON encoder.</dd>
+<dd>JSONのエンコーダーのオプションに「ascii」を指定します。MTMLの場合にのみ有効です。</dd>
 
 </dl>
 
 
-#### Presets
+#### プリセット
 
-Presets that combines multiple specifications.
+一般的なユースケースで簡単に指定するための、複数の指定を組み合わせたプリセットが用意されています。
 
 <dl>
 
