@@ -12,9 +12,11 @@ use JSON;
 use base qw( MT::Plugin );
 
 MT->add_plugin(__PACKAGE__->new({
-        name     => 'MTBlockEditorCustomFormat',
-        version  => $VERSION,
-        registry => {
+        name        => 'MTBlockEditorCustomFormat',
+        author_link => 'http://www.movabletype.org/',
+        author_name => 'Six Apart Ltd.',
+        version     => $VERSION,
+        registry    => {
             tags => {
                 modifier => {
                     mtbe_custom_json => sub {
