@@ -127,7 +127,7 @@ sub apply_custom_filter {
     require JSON;
     require MT::BlockEditor::Parser;
 
-    my $parsed      = MT::BlockEditor::Parser->new(json => JSON->new)->parse($text);
+    my $parsed      = MT::BlockEditor::Parser->new(json => JSON->new)->parse({ content => $text });
     my %encode_opts = ();
     my @handlers;
     for my $key (@$keys) {
