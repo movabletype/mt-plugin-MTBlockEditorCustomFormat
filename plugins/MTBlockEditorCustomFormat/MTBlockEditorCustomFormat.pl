@@ -5,7 +5,7 @@ use warnings;
 use utf8;
 
 use version;
-our $VERSION = 'v0.0.1';
+our $VERSION = 'v1.0.0';
 
 use MT;
 use JSON;

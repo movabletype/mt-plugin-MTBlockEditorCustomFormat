@@ -3,7 +3,7 @@ use YAML;
 
 my $config = {
     name    => 'MTBlockEditorCustomFormat',
-    version => '0.0.1',
+    version => '1.0.0',
 };
 
 WriteMakefile(
